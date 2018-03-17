@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>	
+		<!--指定连接数据库的URL-->
+        <property name="connection.url">
+            jdbc:oracle:thin:@127.0.0.1:1521:orcl
+        </property>
+        <!--指定连接数据库所用的驱动-->
+        <property name="connection.driver_class">
+            oracle.jdbc.driver.OracleDriver
+        </property>
+        <!--指定连接数据库的用户名-->
+        <property name="connection.username">
+        	scott
+        </property>
+        <!--指定连接数据库的密码-->
+        <property name="connection.password">
+        	123456
+        </property>
+		<!--指定数据库方言-->
+        <property name="dialect">
+            org.hibernate.dialect.Oracle10gDialect
+        </property>
+        <!--指定第三方数据源 -->
+		<property name="hibernate.connection.provider_class">
+		   org.hibernate.c3p0.internal.C3P0ConnectionProvider
+		</property>
+		<!--设置事务环境为线程，将session与当前线程绑定 -->
+		<property name="hibernate.current_session_context_class">
+		   thread
+		</property>
+		<!--输出执行的sql语句-->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 映射文件配置 -->
+		<mapping resource="com/model/Xxx.hbm.xml" /> 
+    </session-factory>
+</hibernate-configuration>
